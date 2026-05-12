@@ -179,7 +179,7 @@ export default function Home() {
                 View Projects
               </GlowButton>
 
-              <GlowButton href={`mailto:${personalInfo.email}`} variant="outline" delay={1.0}>
+              <GlowButton to="/contact" variant="outline" delay={1.0}>
                 Hire Me
                 {/* Blinking dot */}
                 <motion.span

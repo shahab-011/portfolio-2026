@@ -101,7 +101,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
       initial={{ y: -90, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-5"
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-6"
     >
       <motion.nav
         animate={{
@@ -116,7 +116,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             : 'none',
         }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-4xl rounded-2xl px-5 py-3 flex items-center justify-between"
+        className="w-full max-w-5xl rounded-2xl px-8 py-4 flex items-center justify-between"
         style={{
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
@@ -127,7 +127,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         <Link to="/" className="flex items-center gap-2.5">
           <AtomLogo />
           <motion.span
-            className="font-bold text-base tracking-[0.2em] text-white/90"
+            className="font-bold text-lg tracking-[0.2em] text-white/90"
             whileHover={{
               background: 'linear-gradient(90deg,#00d9ff,#9442fe)',
               WebkitBackgroundClip: 'text',
@@ -151,7 +151,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   onMouseLeave={() => setHoveredLink(null)}
                 >
                   <motion.div
-                    className="relative px-4 py-1.5 rounded-xl text-sm font-medium cursor-pointer select-none"
+                    className="relative px-5 py-2 rounded-xl text-sm font-medium cursor-pointer select-none"
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 25 }}

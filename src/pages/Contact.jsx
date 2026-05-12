@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import { FaLinkedin, FaEnvelope, FaGithub } from 'react-icons/fa'
@@ -6,7 +6,7 @@ import ParticleCanvas from '../components/ParticleCanvas'
 import { personalInfo } from '../data/portfolio'
 
 const EMAILJS_SERVICE_ID  = 'service_yy2gp1i'
-const EMAILJS_TEMPLATE_ID = 'template_yl3uvgv'
+const EMAILJS_TEMPLATE_ID = 'template_6jmnaov'
 const EMAILJS_PUBLIC_KEY  = '7OkDpEJfoISNlM9QB'
 
 emailjs.init(EMAILJS_PUBLIC_KEY)
@@ -36,7 +36,6 @@ function ContactCard({ icon, label, value, href }) {
 }
 
 export default function Contact() {
-  const formRef = useRef(null)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'success' | 'error'
   const [focused, setFocused] = useState('')
@@ -48,11 +47,18 @@ export default function Contact() {
     setStatus('sending')
 
     try {
-      await emailjs.sendForm(
+      const result = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        formRef.current
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          time: new Date().toLocaleString(),
+        },
+        EMAILJS_PUBLIC_KEY
       )
+      console.log('EmailJS success:', result)
       setStatus('success')
       setForm({ name: '', email: '', message: '' })
       setTimeout(() => setStatus('idle'), 5000)
@@ -144,7 +150,7 @@ export default function Contact() {
             I reply within 24 hours — straight to my inbox.
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
                 <label className="block text-gray-400 text-xs mb-1.5 font-medium">Your Name</label>
