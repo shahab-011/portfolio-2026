@@ -168,26 +168,25 @@ export default function Home() {
 
             {/* Buttons */}
             <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start">
-              <GlowButton to="/projects" variant="solid" delay={0.85}>
-                {/* Animated arrow icon */}
-                <motion.span
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
-                >
-                  →
-                </motion.span>
-                View Projects
-              </GlowButton>
-
-              <GlowButton to="/contact" variant="outline" delay={1.0}>
+              <GlowButton to="/contact" variant="solid" delay={0.85}>
                 Hire Me
                 {/* Blinking dot */}
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}
                   transition={{ repeat: Infinity, duration: 1.2 }}
                   className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: '#00d9ff', display: 'inline-block' }}
+                  style={{ background: '#fff', display: 'inline-block' }}
                 />
+              </GlowButton>
+
+              <GlowButton to="/projects" variant="outline" delay={1.0}>
+                <motion.span
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+                >
+                  →
+                </motion.span>
+                Project
               </GlowButton>
             </div>
 
