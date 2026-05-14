@@ -39,7 +39,7 @@ export default function Footer() {
           {/* Professional Resume button */}
           <motion.a
             href="/assets/resume.pdf"
-            target="_blank"
+            download="Shahab_Alam_Resume.pdf"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
             className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-white rounded-sm transition-all"

@@ -178,7 +178,7 @@ export default function About() {
                 </a>
                 <motion.a
                   href="/assets/resume.pdf"
-                  target="_blank"
+                  download="Shahab_Alam_Resume.pdf"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
                   className="ml-2 px-4 py-1.5 rounded-full text-sm font-medium border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition-all"
