@@ -138,7 +138,7 @@ export const projects = [
     shortDesc: 'A privacy-first AI platform that reads, analyzes, and explains legal documents in plain English — built for non-lawyers in India.',
     description:
       'NyayaAI is a zero-knowledge, AI-powered legal document analysis platform built for Indian users who cannot afford ₹5,000/hour lawyers. Upload any PDF, Word doc, or photo of a contract — the AI extracts clauses, flags risks, computes a health score, and explains everything in plain English. Private Mode processes documents entirely in the browser; the server never sees the file. Features a RAG-powered chat system, document comparison engine, contract expiry alerts, role-based access for lawyers, and a downloadable PDF report.',
-    status: 'Deployed',
+    status: 'Under Development',
     type: 'Solo',
     demo: 'https://nayaya-frontend.netlify.app/',
     github: 'https://github.com/shahab-011',

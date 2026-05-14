@@ -5,7 +5,14 @@ import { FaGithub } from 'react-icons/fa'
 import ParticleCanvas from '../components/ParticleCanvas'
 import { projects } from '../data/portfolio'
 
-const filters = ['All', 'Under Development', 'Completed', 'Deployed']
+const filters = ['All', 'Deployed', 'Under Development', 'Completed']
+
+const filterLabels = {
+  'All': 'All Work',
+  'Under Development': '// In Progress',
+  'Completed': 'Completed',
+  'Deployed': 'Deployed',
+}
 
 const statusConfig = {
   Deployed: {
@@ -424,11 +431,10 @@ export default function Projects() {
                             }
                       }
                     >
-                      {f === 'All' && <span className="opacity-50 text-xs">&lt;/&gt;</span>}
                       {f === 'Under Development' && <span>⚙</span>}
                       {f === 'Completed' && <span>✓</span>}
                       {f === 'Deployed' && <span>🌐</span>}
-                      {f}
+                      {filterLabels[f]}
                     </motion.button>
                   ))}
                 </motion.div>
