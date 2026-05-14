@@ -9,6 +9,7 @@ export const personalInfo = {
   github: 'https://github.com/shahab-011',
   linkedin: 'https://linkedin.com/in/shahab-alam01',
   instagram: 'https://www.instagram.com/shahab_._._._/',
+  facebook: 'https://www.facebook.com/profile.php?id=100009311674862',
   summary:
     'Full Stack MERN Developer with strong foundation in Data Structures, Algorithms, and scalable system design. Experienced in building end-to-end web applications with secure authentication, optimized performance, and clean architecture. Solved 300+ problems on LeetCode demonstrating strong problem-solving skills.',
   education: {
