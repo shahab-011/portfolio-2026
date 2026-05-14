@@ -1,19 +1,10 @@
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 import ParticleCanvas from '../components/ParticleCanvas'
+import GeodesicSphere from '../components/GeodesicSphere'
 import Typewriter from '../components/Typewriter'
 import { personalInfo } from '../data/portfolio'
-
-function AnimatedSphere() {
-  return (
-    <mesh rotation={[0.5, 0.5, 0]}>
-      <sphereGeometry args={[2, 64, 64]} />
-      <meshBasicMaterial wireframe color="#00ffff" />
-    </mesh>
-  )
-}
 
 /* Animated shimmer border button */
 function GlowButton({ children, onClick, href, to, variant = 'outline', delay = 0 }) {
@@ -95,18 +86,24 @@ export default function Home() {
       <div className="relative z-10 flex flex-1 items-center px-6 md:px-16 lg:px-24">
         <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-0">
 
-          {/* LEFT — wireframe sphere */}
+          {/* LEFT — sphere */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="flex-shrink-0 flex items-center justify-center md:justify-start w-full md:w-[420px] h-[380px] md:h-[500px]"
+            className="flex-shrink-0 flex items-center justify-center md:justify-start"
           >
-            <Canvas camera={{ position: [0, 0, 6] }}>
-              <ambientLight intensity={0.5} />
-              <AnimatedSphere />
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.5} />
-            </Canvas>
+            {/* Soft glow behind sphere */}
+            <div className="relative">
+              <div
+                className="absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background: 'radial-gradient(circle, rgba(0,217,255,0.08) 0%, transparent 70%)',
+                  transform: 'scale(1.2)',
+                }}
+              />
+              <GeodesicSphere size={380} />
+            </div>
           </motion.div>
 
           {/* RIGHT — text content */}
