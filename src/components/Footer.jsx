@@ -18,8 +18,8 @@ export default function Footer() {
     >
       <div className="max-w-4xl mx-auto flex flex-col gap-3">
 
-        {/* Resume + Social grouped together */}
-        <div className="flex items-center justify-center gap-6">
+        {/* Resume left — Social right */}
+        <div className="flex items-center justify-between">
           {/* Professional Resume button */}
           <motion.a
             href="/assets/resume.pdf"
@@ -36,8 +36,6 @@ export default function Footer() {
             <HiDownload size={13} />
             Resume
           </motion.a>
-
-          <span className="w-px h-4 bg-white/15" />
 
           {/* Social icons */}
           <div className="flex items-center gap-5">
