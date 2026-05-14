@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ParticleCanvas from '../components/ParticleCanvas'
-import TechOrb from '../components/TechOrb'
+import GeodesicSphere from '../components/GeodesicSphere'
 import Typewriter from '../components/Typewriter'
 import { personalInfo } from '../data/portfolio'
 
@@ -102,7 +102,7 @@ export default function Home() {
                   transform: 'scale(1.2)',
                 }}
               />
-              <TechOrb size={420} />
+              <GeodesicSphere size={380} />
             </div>
           </motion.div>
 
