@@ -83,15 +83,15 @@ export default function Home() {
       </div>
 
       {/* ── Main hero row ─────────────────────────────────── */}
-      <div className="relative z-10 flex flex-1 items-center px-6 md:px-16 lg:px-24">
-        <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-0">
+      <div className="relative z-10 flex flex-1 items-center pt-20 md:pt-0 px-6 md:px-16 lg:px-24">
+        <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-4 md:gap-0">
 
-          {/* LEFT — sphere */}
+          {/* LEFT — sphere (order-2 on mobile so text shows first) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="flex-shrink-0 flex items-center justify-center md:justify-start"
+            className="flex-shrink-0 flex items-center justify-center md:justify-start order-2 md:order-1"
           >
             {/* Soft glow behind sphere */}
             <div className="relative">
@@ -102,12 +102,14 @@ export default function Home() {
                   transform: 'scale(1.2)',
                 }}
               />
-              <GeodesicSphere size={380} />
+              {/* Smaller on mobile, full size on desktop */}
+              <div className="block md:hidden"><GeodesicSphere size={220} /></div>
+              <div className="hidden md:block"><GeodesicSphere size={380} /></div>
             </div>
           </motion.div>
 
-          {/* RIGHT — text content */}
-          <div className="flex-1 md:pl-10 lg:pl-16 text-center md:text-left">
+          {/* RIGHT — text content (order-1 on mobile so text shows first) */}
+          <div className="flex-1 md:pl-10 lg:pl-16 text-center md:text-left order-1 md:order-2">
 
             {/* Subtle label */}
             <motion.p
