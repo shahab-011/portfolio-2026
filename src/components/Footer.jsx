@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto flex flex-col gap-3">
 
         {/* Resume left — Social right */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center gap-6">
           {/* Professional Resume button */}
           <motion.a
             href="/assets/resume.pdf"
@@ -57,7 +57,12 @@ export default function Footer() {
         {/* Message */}
         <p className="text-gray-600 text-xs text-center tracking-wide">
           Pixels, logic, and a bit of obsession. —{' '}
-          <span className="text-cyan-500/60">@Shahab</span>
+          <span className="text-cyan-500/60">Shahab</span>
+        </p>
+
+        {/* Copyright */}
+        <p className="text-gray-700 text-xs text-center">
+          Copyright © 2026 Shahab
         </p>
       </div>
     </footer>
