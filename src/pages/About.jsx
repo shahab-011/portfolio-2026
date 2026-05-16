@@ -222,7 +222,7 @@ export default function About() {
               {
                 side: 'right',
                 icon: '🏫',
-                period: '2020 – 2022',
+                period: '2019 – 2021',
                 school: 'Karim City College',
                 location: 'Jamshedpur, Jharkhand',
                 degree: 'Intermediate (Class XII) — Science',
@@ -234,7 +234,7 @@ export default function About() {
               {
                 side: 'left',
                 icon: '🏫',
-                period: 'Until 2020',
+                period: 'Until 2019',
                 school: 'St Child English High School',
                 location: 'Jamshedpur, Jharkhand',
                 degree: 'Matriculation (Class X)',
