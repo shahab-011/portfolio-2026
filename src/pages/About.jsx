@@ -190,6 +190,106 @@ export default function About() {
           </div>
         </motion.div>
 
+        {/* — Academic History — */}
+        <motion.div {...fadeUp(0.1)} className="mb-20">
+          <p className="text-cyan-400 text-center text-sm font-mono mb-2 tracking-widest">../education</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-14">
+            🎓 Academic <span className="gradient-text">History</span>
+          </h2>
+
+          <div className="relative">
+            {/* Vertical line */}
+            <div
+              className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
+              style={{ background: 'linear-gradient(to bottom, #00d9ff, #9442fe, #00d9ff)' }}
+            />
+
+            {[
+              {
+                side: 'left',
+                icon: '🏛️',
+                period: 'Aug 2022 – July 2026',
+                school: 'St Thomas College of Engineering & Technology',
+                location: 'Kolkata, West Bengal',
+                degree: 'B.Tech — Computer Science Engineering',
+                details: [
+                  'CGPA: 7.10 / 10',
+                  'Specialisation in Full Stack Development',
+                  'Solved 300+ DSA problems on LeetCode',
+                  'Built multiple production-grade MERN projects',
+                ],
+              },
+              {
+                side: 'right',
+                icon: '🏫',
+                period: '2020 – 2022',
+                school: 'Karim City College',
+                location: 'Jamshedpur, Jharkhand',
+                degree: 'Intermediate (Class XII) — Science',
+                details: [
+                  'Physics, Chemistry, Mathematics',
+                  'Jharkhand Academic Council',
+                ],
+              },
+              {
+                side: 'left',
+                icon: '🏫',
+                period: 'Until 2020',
+                school: 'St Child English High School',
+                location: 'Jamshedpur, Jharkhand',
+                degree: 'Matriculation (Class X)',
+                details: [
+                  'Jharkhand Academic Council',
+                  'Foundation in Science & Mathematics',
+                ],
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: item.side === 'left' ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className={`relative flex items-center mb-12 ${item.side === 'left' ? 'flex-row' : 'flex-row-reverse'}`}
+              >
+                {/* Card */}
+                <div className="w-5/12">
+                  <div
+                    className="rounded-2xl p-5 border border-white/10 hover:border-cyan-400/30 transition-all duration-300"
+                    style={{ background: 'rgba(8,13,31,0.8)', backdropFilter: 'blur(10px)', boxShadow: '0 4px 24px rgba(0,0,0,0.3)' }}
+                  >
+                    <p className="text-cyan-400 text-xs font-mono mb-1">{item.period}</p>
+                    <h3 className="text-white font-bold text-base mb-0.5">{item.school}</h3>
+                    <p className="text-gray-500 text-xs mb-2">{item.location}</p>
+                    <p className="text-cyan-300/80 text-sm font-medium mb-3">{item.degree}</p>
+                    <ul className="space-y-1">
+                      {item.details.map((d, j) => (
+                        <li key={j} className="flex items-start gap-2 text-gray-400 text-xs">
+                          <span className="text-cyan-500 mt-0.5 flex-shrink-0">▸</span>
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Center node */}
+                <div className="w-2/12 flex justify-center relative z-10">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-lg border-2 border-cyan-400"
+                    style={{ background: '#020617', boxShadow: '0 0 16px rgba(0,217,255,0.5)' }}
+                  >
+                    {item.icon}
+                  </div>
+                </div>
+
+                {/* Empty opposite side */}
+                <div className="w-5/12" />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* — Skills — */}
         <motion.div {...fadeUp(0.1)} className="mb-20">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-10">
