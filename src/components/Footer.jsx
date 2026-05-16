@@ -56,8 +56,7 @@ export default function Footer() {
 
         {/* Message */}
         <p className="text-gray-600 text-xs text-center tracking-wide">
-          Pixels, logic, and a bit of obsession. —{' '}
-          <span className="text-cyan-500/60">Shahab</span>
+          Pixels, logic, and a bit of obsession.
         </p>
 
         {/* Copyright */}
