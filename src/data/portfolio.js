@@ -287,10 +287,11 @@ export const projects = [
     shortDesc: 'A comprehensive 3-in-1 legal ecosystem engineered for India: pre-connection AI contract analysis, algorithmic advocate matchmaking, and BCI-compliant enterprise practice management.',
     description:
       'The Legal Intelligence System (NyayaAI) is engineered as a comprehensive, unified 3-in-1 legal ecosystem for the Indian judicial landscape. Rather than just being a single-purpose application, it seamlessly connects three distinct phases of the legal workflow into one continuous platform.\n\nBy embedding strict Indian regulatory mandates—such as the Bar Council of India (BCI) trust accounting rules, the DPDP Act of 2023, and the Limitation Act of 1963—directly into the application’s core architecture, NyayaAI proves that sophisticated legal tools can balance high-level enterprise requirements with privacy-first imperatives.',
-    status: 'Under Development',
+    status: 'Deployed',
     type: 'Co-Creator & Full-Stack Dev',
-    demo: 'https://nayaya-frontend.netlify.app/',
-    github: 'https://github.com/shahab-011',
+    demo: 'https://nayaya-ai.netlify.app/',
+    github: 'https://github.com/shahab-011/nay',
+    githubBackend: 'https://github.com/shahab-011/product-backend',
     tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Gemini AI', 'Socket.io', 'PDF.js', 'WebAssembly', 'Render', 'Netlify'],
     tags: ['#3in1Ecosystem', '#LegalTech', '#SaaS', '#AI', '#ZeroKnowledge', '#DPDPAct', '#BCICompliant', '#FullStack', '#MERN', '#IndiaLegal', '#FinalYearProject'],
     ecosystemSections: [

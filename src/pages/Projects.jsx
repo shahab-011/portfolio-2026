@@ -132,25 +132,38 @@ function ProjectCard({ project, index, onClick }) {
 
         {/* Footer */}
         <div
-          className="flex items-center gap-4 pt-3"
+          className="flex items-center gap-3 pt-3 flex-wrap"
           style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
         >
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-1.5 text-xs text-gray-600 hover:text-gray-300 transition-colors"
-          >
-            <FaGithub size={11} /> Code
-          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              <FaGithub size={11} /> {project.githubBackend ? 'Frontend' : 'Code'}
+            </a>
+          )}
+          {project.githubBackend && (
+            <a
+              href={project.githubBackend}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              <FaGithub size={11} /> Backend
+            </a>
+          )}
           {project.demo && (
             <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-1.5 text-xs text-cyan-600 hover:text-cyan-400 transition-colors"
+              className="flex items-center gap-1.5 text-xs text-cyan-500 hover:text-cyan-300 transition-colors ml-auto"
             >
               <ExternalLink size={11} /> Demo
             </a>
@@ -254,17 +267,32 @@ function ProjectDetail({ project, onBack }) {
               <ExternalLink size={14} /> Live Demo
             </motion.a>
           )}
-          <motion.a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
-            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
-          >
-            <FaGithub size={14} /> View Code
-          </motion.a>
+          {project.github && (
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
+              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
+            >
+              <FaGithub size={14} /> {project.githubBackend ? 'Frontend Code' : 'View Code'}
+            </motion.a>
+          )}
+          {project.githubBackend && (
+            <motion.a
+              href={project.githubBackend}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
+              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
+            >
+              <FaGithub size={14} /> Backend Code
+            </motion.a>
+          )}
         </div>
       </div>
 
