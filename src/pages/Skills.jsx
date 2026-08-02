@@ -14,7 +14,6 @@ function SkillCard({ skill, index }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
       animate={{ y: hovered ? -10 : 0, scale: hovered ? 1.06 : 1 }}
-      transition={{ type: 'spring', stiffness: 220, damping: 18 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="relative flex flex-col items-center justify-center gap-2 p-4 rounded-3xl cursor-default overflow-hidden"
@@ -23,7 +22,7 @@ function SkillCard({ skill, index }) {
         minWidth: '8rem',
         background: 'rgba(8, 13, 31, 0.7)',
         border: `1px solid ${hovered ? skill.color + '55' : 'rgba(255,255,255,0.07)'}`,
-        boxShadow: hovered ? `0 8px 30px ${skill.color}22, 0 0 0 0px ${skill.color}` : 'none',
+        boxShadow: hovered ? `0 8px 30px ${skill.color}22` : 'none',
         transition: 'border-color 0.45s ease, box-shadow 0.45s ease',
       }}
     >
@@ -133,7 +132,7 @@ function Section({ label, skillNames, allSkills, baseIndex }) {
           style={{ background: 'linear-gradient(to right, rgba(0,217,255,0.3), transparent)' }}
         />
       </div>
-      <div className="flex flex-wrap gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {sectionSkills.map((skill, i) => (
           <SkillCard key={skill.name} skill={skill} index={baseIndex + i} />
         ))}
