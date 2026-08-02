@@ -143,7 +143,7 @@ function ProjectCard({ project, index, onClick }) {
               onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300 transition-colors"
             >
-              <FaGithub size={11} /> {project.githubBackend ? 'Frontend' : 'Code'}
+              <FaGithub size={11} /> Code
             </a>
           )}
           {project.githubBackend && (
@@ -154,7 +154,7 @@ function ProjectCard({ project, index, onClick }) {
               onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300 transition-colors"
             >
-              <FaGithub size={11} /> Backend
+              <FaGithub size={11} /> Code
             </a>
           )}
           {project.demo && (
@@ -277,7 +277,7 @@ function ProjectDetail({ project, onBack }) {
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
               style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
             >
-              <FaGithub size={14} /> {project.githubBackend ? 'Frontend Code' : 'View Code'}
+              <FaGithub size={14} /> View Code
             </motion.a>
           )}
           {project.githubBackend && (
@@ -290,7 +290,7 @@ function ProjectDetail({ project, onBack }) {
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
               style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
             >
-              <FaGithub size={14} /> Backend Code
+              <FaGithub size={14} /> View Code
             </motion.a>
           )}
         </div>
