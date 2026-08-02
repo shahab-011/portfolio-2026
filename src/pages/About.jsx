@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import ParticleCanvas from '../components/ParticleCanvas'
-import { personalInfo, skills, certifications, achievements, experience } from '../data/portfolio'
+import { personalInfo, skills, categories, certifications, achievements, experience } from '../data/portfolio'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -295,11 +295,28 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-10">
             My <span className="gradient-text">Skills</span>
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {skills.map((skill, i) => (
-              <SkillCard key={skill.name} skill={skill} index={i} />
-            ))}
-          </div>
+          {categories.map((cat, ci) => {
+            const sectionSkills = skills.filter((s) => cat.skills.includes(s.name))
+            if (!sectionSkills.length) return null
+            return (
+              <div key={cat.label} className="mb-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-mono tracking-widest uppercase text-cyan-400">
+                    {cat.label}
+                  </span>
+                  <div
+                    className="flex-1 h-px"
+                    style={{ background: 'linear-gradient(to right, rgba(0,217,255,0.3), transparent)' }}
+                  />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  {sectionSkills.map((skill, i) => (
+                    <SkillCard key={skill.name} skill={skill} index={ci * 4 + i} />
+                  ))}
+                </div>
+              </div>
+            )
+          })}
         </motion.div>
 
         {/* — Achievements — */}

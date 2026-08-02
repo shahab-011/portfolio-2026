@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ParticleCanvas from '../components/ParticleCanvas'
-import { skills } from '../data/portfolio'
+import { skills, categories } from '../data/portfolio'
 
 /* ── Skill card ──────────────────────────────────────────── */
 function SkillCard({ skill, index }) {
@@ -82,33 +82,6 @@ function SkillCard({ skill, index }) {
 }
 
 /* ── Category grouping ───────────────────────────────────── */
-const categories = [
-  {
-    label: 'Languages',
-    skills: ['JavaScript', 'C / C++', 'Java', 'HTML & CSS'],
-  },
-  {
-    label: 'Frontend',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
-  },
-  {
-    label: 'Backend',
-    skills: ['Node.js', 'Express.js', 'REST APIs'],
-  },
-  {
-    label: 'Database',
-    skills: ['MongoDB', 'MySQL'],
-  },
-  {
-    label: 'DevOps & Cloud',
-    skills: ['AWS', 'Docker', 'Git & GitHub'],
-  },
-  {
-    label: 'Core',
-    skills: ['DSA', 'TypeScript'],
-  },
-]
-
 function Section({ label, skillNames, allSkills, baseIndex }) {
   const sectionSkills = allSkills.filter((s) => skillNames.includes(s.name))
   if (!sectionSkills.length) return null

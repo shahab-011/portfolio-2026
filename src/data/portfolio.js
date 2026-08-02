@@ -21,24 +21,170 @@ export const personalInfo = {
 }
 
 export const skills = [
-  { name: 'JavaScript', icon: '🟨', color: '#fefe01' },
+  // AI & Gen AI
+  { name: 'Generative AI', icon: '🤖', color: '#00d9ff' },
+  { name: 'LLMs', icon: '🧠', color: '#9442fe' },
+  { name: 'Prompt Engineering', icon: '💬', color: '#38BDF8' },
+  { name: 'OpenAI API', icon: '⚡', color: '#10a37f' },
+  { name: 'LangChain (Basics)', icon: '🦜', color: '#22c55e' },
+  { name: 'LangGraph', icon: '🕸️', color: '#f59e0b' },
+  { name: 'Hugging Face (Basics)', icon: '🤗', color: '#ffbd45' },
+  { name: 'LlamaIndex', icon: '🦙', color: '#a855f7' },
+  { name: 'Ollama', icon: '🦛', color: '#ffffff' },
+  { name: 'RAG', icon: '🔍', color: '#ec4899' },
+
+  // Languages
+  { name: 'C', icon: '💻', color: '#283593' },
+  { name: 'C++', icon: '⚙️', color: '#00599C' },
+  { name: 'JavaScript (ES6+)', icon: '🟨', color: '#fefe01' },
+  { name: 'HTML & CSS', icon: '🌐', color: '#e34f26' },
+
+  // Frontend
   { name: 'React', icon: '⚛️', color: '#61DAFB' },
-  { name: 'Node.js', icon: '🟢', color: '#68A063' },
+  { name: 'React Native', icon: '📱', color: '#61DAFB' },
   { name: 'Next.js', icon: '▲', color: '#ffffff' },
-  { name: 'MongoDB', icon: '🍃', color: '#4DB33D' },
-  { name: 'MySQL', icon: '🐬', color: '#00758F' },
-  { name: 'Express.js', icon: '🚀', color: '#888888' },
-  { name: 'TypeScript', icon: '🔷', color: '#007ACC' },
   { name: 'Tailwind CSS', icon: '💨', color: '#38BDF8' },
   { name: 'Framer Motion', icon: '🎬', color: '#BB4FFF' },
-  { name: 'AWS', icon: '☁️', color: '#FF9900' },
-  { name: 'Docker', icon: '🐳', color: '#2496ED' },
-  { name: 'Git & GitHub', icon: '🐙', color: '#f05032' },
+  { name: 'Angular (Basics)', icon: '🅰️', color: '#DD0031' },
+  { name: 'RxJS (Basics)', icon: '🔥', color: '#D32F2F' },
+
+  // Backend
+  { name: 'Node.js', icon: '🟢', color: '#68A063' },
+  { name: 'Express.js', icon: '🚀', color: '#888888' },
+  { name: 'FastAPI', icon: '⚡', color: '#009688' },
+  { name: 'JWT', icon: '🔑', color: '#d63aff' },
   { name: 'REST APIs', icon: '🔗', color: '#00d9ff' },
-  { name: 'C / C++', icon: '⚙️', color: '#A8B9CC' },
-  { name: 'Java', icon: '☕', color: '#f89820' },
-  { name: 'HTML & CSS', icon: '🌐', color: '#e34f26' },
+  { name: 'Microservices', icon: '🧩', color: '#3b82f6' },
+  { name: 'Spring Boot (Basics)', icon: '🍃', color: '#6DB33F' },
+  { name: 'Hibernate (Basics)', icon: '🧊', color: '#59666C' },
+
+  // Database
+  { name: 'MongoDB', icon: '🍃', color: '#4DB33D' },
+  { name: 'MySQL', icon: '🐬', color: '#00758F' },
+  { name: 'OpenSearch (Elasticsearch)', icon: '🔎', color: '#005A9C' },
+  { name: 'Oracle (Basics)', icon: '🔴', color: '#F80000' },
+
+  // DevOps & Cloud
+  { name: 'AWS (EKS, S3, Lambda, SQS)', icon: '☁️', color: '#FF9900' },
+  { name: 'Docker', icon: '🐳', color: '#2496ED' },
+  { name: 'Kubernetes', icon: '☸️', color: '#326CE5' },
+  { name: 'CI/CD', icon: '🔄', color: '#16a34a' },
+  { name: 'GitHub Actions', icon: '⚡', color: '#2088FF' },
+  { name: 'Jenkins (Basics)', icon: '👨‍✈️', color: '#D33833' },
+
+  // Tools & Process
+  { name: 'Git', icon: '🐙', color: '#f05032' },
+  { name: 'GitHub', icon: '🐈', color: '#ffffff' },
+  { name: 'VS Code', icon: '🟦', color: '#007ACC' },
+  { name: 'Antigravity', icon: '🌌', color: '#00d9ff' },
+  { name: 'Stitch', icon: '🧵', color: '#a855f7' },
+  { name: 'Cursor', icon: '🖱️', color: '#38bdf8' },
+  { name: 'Lovable', icon: '💖', color: '#ff4081' },
+  { name: 'Firebase', icon: '🔥', color: '#FFCA28' },
+  { name: 'Prisma', icon: '◮', color: '#2D3748' },
+  { name: 'Agile/Scrum', icon: '🔄', color: '#8b5cf6' },
+  { name: 'Linux (Basics)', icon: '🐧', color: '#FCC624' },
+
+  // Core Concepts
   { name: 'DSA', icon: '📊', color: '#9442fe' },
+  { name: 'OOP', icon: '📐', color: '#3b82f6' },
+  { name: 'Microservices Architecture', icon: '🏗️', color: '#06b6d4' },
+  { name: 'Orchestration', icon: '🎻', color: '#10b981' },
+  { name: 'Distributed Systems', icon: '🌐', color: '#f59e0b' },
+  { name: 'Redis (Basics)', icon: '🔴', color: '#DC382D' },
+  { name: 'DBMS', icon: '🗄️', color: '#8b5cf6' },
+  { name: 'OS', icon: '💻', color: '#64748b' },
+]
+
+export const categories = [
+  {
+    label: 'AI & Gen AI',
+    skills: [
+      'Generative AI',
+      'LLMs',
+      'Prompt Engineering',
+      'OpenAI API',
+      'LangChain (Basics)',
+      'LangGraph',
+      'Hugging Face (Basics)',
+      'LlamaIndex',
+      'Ollama',
+      'RAG',
+    ],
+  },
+  {
+    label: 'Languages',
+    skills: ['C', 'C++', 'JavaScript (ES6+)', 'HTML & CSS'],
+  },
+  {
+    label: 'Frontend',
+    skills: [
+      'React',
+      'React Native',
+      'Next.js',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Angular (Basics)',
+      'RxJS (Basics)',
+    ],
+  },
+  {
+    label: 'Backend',
+    skills: [
+      'Node.js',
+      'Express.js',
+      'FastAPI',
+      'JWT',
+      'REST APIs',
+      'Microservices',
+      'Spring Boot (Basics)',
+      'Hibernate (Basics)',
+    ],
+  },
+  {
+    label: 'Database',
+    skills: ['MongoDB', 'MySQL', 'OpenSearch (Elasticsearch)', 'Oracle (Basics)'],
+  },
+  {
+    label: 'DevOps & Cloud',
+    skills: [
+      'AWS (EKS, S3, Lambda, SQS)',
+      'Docker',
+      'Kubernetes',
+      'CI/CD',
+      'GitHub Actions',
+      'Jenkins (Basics)',
+    ],
+  },
+  {
+    label: 'Tools & Process',
+    skills: [
+      'Git',
+      'GitHub',
+      'VS Code',
+      'Antigravity',
+      'Stitch',
+      'Cursor',
+      'Lovable',
+      'Firebase',
+      'Prisma',
+      'Agile/Scrum',
+      'Linux (Basics)',
+    ],
+  },
+  {
+    label: 'Core Concepts',
+    skills: [
+      'DSA',
+      'OOP',
+      'Microservices Architecture',
+      'Orchestration',
+      'Distributed Systems',
+      'Redis (Basics)',
+      'DBMS',
+      'OS',
+    ],
+  },
 ]
 
 export const projects = [
