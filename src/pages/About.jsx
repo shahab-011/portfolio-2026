@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import ParticleCanvas from '../components/ParticleCanvas'
-import { personalInfo, skills, categories, certifications, achievements, experience } from '../data/portfolio'
+import { personalInfo, skills, categories, certifications, experience } from '../data/portfolio'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -316,33 +316,6 @@ export default function About() {
               </div>
             )
           })}
-        </motion.div>
-
-        {/* — Achievements — */}
-        <motion.div {...fadeUp(0.1)} className="mb-16">
-          <h2 className="text-3xl font-extrabold text-center text-white mb-8">
-            <span className="gradient-text">Achievements</span>
-          </h2>
-          <div
-            className="rounded-2xl border border-white/10 p-6 md:p-8"
-            style={{ background: 'rgba(8,13,31,0.7)', backdropFilter: 'blur(8px)' }}
-          >
-            <ul className="space-y-3">
-              {achievements.map((item, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-3 text-gray-300"
-                >
-                  <span className="text-cyan-400 mt-1 flex-shrink-0">●</span>
-                  {item}
-                </motion.li>
-              ))}
-            </ul>
-          </div>
         </motion.div>
 
         {/* — Certifications — */}
