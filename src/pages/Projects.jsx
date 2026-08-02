@@ -191,9 +191,12 @@ function ProjectDetail({ project, onBack }) {
             {project.emoji}
           </div>
           <div className="flex-1">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-2">{project.title}</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-1">{project.title}</h2>
+            {project.tagline && (
+              <p className="text-cyan-400 font-medium text-xs md:text-sm mb-2">{project.tagline}</p>
+            )}
             <p className="text-gray-400 text-sm mb-3">{project.shortDesc}</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
               <span
                 className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold"
                 style={{ background: status.bg, border: `1px solid ${status.border}`, color: status.text }}
@@ -208,6 +211,9 @@ function ProjectDetail({ project, onBack }) {
                 {project.type}
               </span>
             </div>
+            {project.institution && (
+              <p className="text-gray-400 text-xs font-mono mt-1">🎓 {project.institution}</p>
+            )}
           </div>
         </div>
 
@@ -282,6 +288,67 @@ function ProjectDetail({ project, onBack }) {
         </div>
       )}
 
+      {/* Problem Statement Section */}
+      {project.problemStatement && (
+        <div
+          className="rounded-2xl p-6 md:p-8 mb-5"
+          style={{
+            background: 'rgba(244,63,94,0.03)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(244,63,94,0.15)',
+          }}
+        >
+          <h3 className="text-rose-400 font-semibold text-sm mb-4 flex items-center gap-2 tracking-wide uppercase font-mono">
+            ⚠️ The Problem Addressed
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {project.problemStatement.map((prob, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl"
+                style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(244,63,94,0.12)' }}
+              >
+                <p className="text-rose-300 font-bold text-xs mb-1.5">● {prob.title}</p>
+                <p className="text-gray-400 text-xs leading-relaxed">{prob.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Highlights / Features Grid */}
+      {project.highlights && (
+        <div
+          className="rounded-2xl p-6 md:p-8 mb-5"
+          style={{
+            background: 'rgba(255,255,255,0.03)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255,255,255,0.07)',
+          }}
+        >
+          <h3 className="text-cyan-400 font-semibold text-sm mb-4 flex items-center gap-2 tracking-wide uppercase font-mono">
+            🚀 Key Features &amp; Capabilities
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {project.highlights.map((h, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl flex items-start gap-3"
+                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+              >
+                <span className="text-2xl flex-shrink-0 mt-0.5">{h.icon}</span>
+                <div>
+                  <p className="text-white font-semibold text-xs mb-1">{h.label}</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">{h.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Description + Key Decisions */}
       <div
         className="rounded-2xl p-6 md:p-8 mb-5"
@@ -292,7 +359,8 @@ function ProjectDetail({ project, onBack }) {
           border: '1px solid rgba(255,255,255,0.07)',
         }}
       >
-        <p className="text-gray-300 leading-relaxed mb-6 text-sm">{project.description}</p>
+        <h3 className="text-white font-bold text-sm mb-3">Project Overview</h3>
+        <p className="text-gray-300 leading-relaxed mb-6 text-sm whitespace-pre-line">{project.description}</p>
 
         <h3 className="text-cyan-400 font-semibold text-sm mb-3">Key Decisions</h3>
         <ul className="space-y-2.5 mb-6">
