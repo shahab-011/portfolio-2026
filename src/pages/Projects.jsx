@@ -38,22 +38,49 @@ const statusConfig = {
   },
 }
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.15,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 24,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -12,
+    scale: 0.9,
+    transition: { duration: 0.15 },
+  },
+}
+
 /* ── Project Card ────────────────────────────────────────── */
-function ProjectCard({ project, index, onClick }) {
+function ProjectCard({ project, onClick }) {
   const status = statusConfig[project.status] || statusConfig['Under Development']
 
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.88, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.85, y: -15 }}
-      transition={{
-        opacity: { duration: 0.25 },
-        scale: { duration: 0.25 },
-        y: { duration: 0.25 },
-        layout: { type: 'spring', stiffness: 350, damping: 28 },
-      }}
+      variants={cardVariants}
       onClick={() => onClick(project)}
       className="relative rounded-2xl overflow-hidden cursor-pointer group flex flex-col"
       style={{
@@ -614,13 +641,20 @@ export default function Projects() {
               </div>
 
               {/* Grid */}
-              <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <AnimatePresence mode="popLayout">
-                  {filtered.map((project, i) => (
-                    <ProjectCard key={project.id} project={project} index={i} onClick={setSelected} />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeFilter}
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                >
+                  {filtered.map((project) => (
+                    <ProjectCard key={project.id} project={project} onClick={setSelected} />
                   ))}
-                </AnimatePresence>
-              </motion.div>
+                </motion.div>
+              </AnimatePresence>
 
               {filtered.length === 0 && (
                 <div className="text-center text-gray-600 py-20 text-sm">
