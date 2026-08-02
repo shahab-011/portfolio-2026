@@ -199,12 +199,30 @@ function ProjectDetail({ project, onBack }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
-      className="max-w-4xl mx-auto"
+      initial={{ opacity: 0, y: 25, scale: 0.97 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 25, scale: 0.97 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className="max-w-4xl mx-auto relative"
     >
+      {/* Top Left Floating Back Button */}
+      <div className="mb-4 flex items-center justify-between">
+        <motion.button
+          onClick={onBack}
+          whileHover={{ scale: 1.05, x: -3 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-cyan-400 hover:text-white transition-all cursor-pointer"
+          style={{
+            background: 'rgba(15, 23, 42, 0.85)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(0, 217, 255, 0.3)',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
+          }}
+        >
+          <ArrowLeft size={13} /> Back to Projects
+        </motion.button>
+      </div>
       {/* Header */}
       <div
         className="rounded-2xl p-6 md:p-8 mb-5"
@@ -561,6 +579,19 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selected, setSelected] = useState(null)
 
+  useEffect(() => {
+    if (selected) {
+      window.history.pushState({ projectDetail: true }, '')
+      const handlePopState = () => {
+        setSelected(null)
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => {
+        window.removeEventListener('popstate', handlePopState)
+      }
+    }
+  }, [selected])
+
   const filtered =
     activeFilter === 'All'
       ? projects
@@ -578,7 +609,13 @@ export default function Projects() {
           {selected ? (
             <ProjectDetail key="detail" project={selected} onBack={() => setSelected(null)} />
           ) : (
-            <motion.div key="list" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div
+              key="list"
+              initial={{ opacity: 0, y: -15, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -15, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
 
               {/* Header + filter row */}
               <div className="flex flex-col gap-4 mb-10">
