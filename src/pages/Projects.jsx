@@ -45,10 +45,15 @@ function ProjectCard({ project, index, onClick }) {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.35, delay: index * 0.07 }}
+      initial={{ opacity: 0, scale: 0.88, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.85, y: -15 }}
+      transition={{
+        opacity: { duration: 0.25 },
+        scale: { duration: 0.25 },
+        y: { duration: 0.25 },
+        layout: { type: 'spring', stiffness: 350, damping: 28 },
+      }}
       onClick={() => onClick(project)}
       className="relative rounded-2xl overflow-hidden cursor-pointer group flex flex-col"
       style={{
@@ -610,7 +615,7 @@ export default function Projects() {
 
               {/* Grid */}
               <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <AnimatePresence>
+                <AnimatePresence mode="popLayout">
                   {filtered.map((project, i) => (
                     <ProjectCard key={project.id} project={project} index={i} onClick={setSelected} />
                   ))}
