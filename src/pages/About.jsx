@@ -134,9 +134,12 @@ export default function About() {
               >
                 {personalInfo.fullName}
               </h3>
-              <p className="text-cyan-400 text-sm font-mono mb-4">Full Stack MERN Developer</p>
-              <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
+              <p className="text-cyan-400 text-sm font-mono mb-4">AI-Native Full Stack Developer</p>
+              <p className="text-gray-300 leading-relaxed mb-4 text-sm md:text-base">
                 {personalInfo.summary}
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
+                {personalInfo.dsaSummary}
               </p>
 
               {/* Education */}

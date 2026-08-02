@@ -1,8 +1,8 @@
 export const personalInfo = {
   name: 'SHAHAB',
   fullName: 'Shahab Alam',
-  tagline: 'Full Stack Developer & Problem Solver',
-  roles: ['Full Stack MERN Developer', 'Creative Developer', 'Problem Solver'],
+  tagline: 'AI-Native Full Stack Developer & Problem Solver',
+  roles: ['AI-Native Full Stack Developer', 'Full Stack MERN Developer', 'Gen AI & Prompt Engineer', 'Problem Solver (300+ LeetCode)'],
   welcome: 'Welcome to my portfolio!',
   email: 'shahabalam2512@gmail.com',
   phone: '+91-9709422890',
@@ -11,7 +11,9 @@ export const personalInfo = {
   instagram: 'https://www.instagram.com/shahab_._._._/',
   facebook: 'https://www.facebook.com/profile.php?id=100009311674862',
   summary:
-    'Full Stack MERN Developer with strong foundation in Data Structures, Algorithms, and scalable system design. Experienced in building end-to-end web applications with secure authentication, optimized performance, and clean architecture. Solved 300+ problems on LeetCode demonstrating strong problem-solving skills.',
+    'AI-Native Full Stack Developer with expertise in building scalable web applications and integrating Generative AI solutions into real-world products. Proficient in OpenAI API, LangChain, React, Node.js, AWS, Docker, and CI/CD pipelines. Strong problem-solving. Passionate about leveraging emerging technologies to develop impactful, user-centric software solutions and drive innovation.',
+  dsaSummary:
+    'Strong problem-solving mindset with high proficiency in Data Structures and Algorithms (DSA). Solved 300+ problems on LeetCode and competitive programming platforms, demonstrating deep understanding of core algorithmic patterns, optimization, dynamic programming, graphs, and scalable system design.',
   education: {
     degree: 'B.Tech in Computer Science Engineering',
     college: 'St Thomas College of Engineering and Technology',
