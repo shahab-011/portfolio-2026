@@ -288,6 +288,78 @@ function ProjectDetail({ project, onBack }) {
         </div>
       )}
 
+      {/* Unified 3-in-1 Legal Ecosystem Architecture Cards */}
+      {project.ecosystemSections && (
+        <div
+          className="rounded-2xl p-6 md:p-8 mb-5 relative overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, rgba(8,13,31,0.95) 0%, rgba(15,23,42,0.95) 100%)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(0, 217, 255, 0.25)',
+            boxShadow: '0 12px 40px rgba(0,0,0,0.4)',
+          }}
+        >
+          <div className="mb-6">
+            <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-widest text-cyan-400 bg-cyan-400/10 border border-cyan-400/30 inline-block mb-3">
+              ⚡ Unified 3-in-1 Legal Ecosystem
+            </span>
+            <h3 className="text-xl md:text-2xl font-extrabold text-white mb-2">
+              End-to-End Judicial Workflow Architecture
+            </h3>
+            <p className="text-gray-400 text-xs md:text-sm leading-relaxed max-w-3xl">
+              Engineered as a comprehensive, unified 3-in-1 legal ecosystem connecting three distinct phases of the legal workflow into one continuous platform tailored for the Indian judicial landscape.
+            </p>
+          </div>
+
+          {/* 3 Section Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {project.ecosystemSections.map((sec) => (
+              <div
+                key={sec.phase}
+                className="rounded-xl p-5 flex flex-col justify-between relative overflow-hidden"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  border: `1px solid ${sec.border}`,
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.25)',
+                }}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-2xl">{sec.num}</span>
+                    <span
+                      className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold"
+                      style={{ color: sec.badgeColor, background: `${sec.badgeColor}18`, border: `1px solid ${sec.badgeColor}33` }}
+                    >
+                      {sec.phase}
+                    </span>
+                  </div>
+
+                  <h4 className="text-white font-bold text-sm md:text-base mb-1">{sec.title}</h4>
+                  <p className="text-cyan-400/90 font-mono text-[11px] mb-4">{sec.subtitle}</p>
+
+                  <div className="space-y-3 mb-4">
+                    <div>
+                      <p className="text-gray-400 font-semibold text-[11px] uppercase tracking-wider mb-1">🎯 Purpose</p>
+                      <p className="text-gray-300 text-xs leading-relaxed">{sec.purpose}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-cyan-400 font-semibold text-[11px] uppercase tracking-wider mb-1">⚙️ Tech Engine</p>
+                      <p className="text-gray-400 text-xs leading-relaxed">{sec.techEngine}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-white/10">
+                  <p className="text-purple-300 font-semibold text-[11px] uppercase tracking-wider mb-1">💡 Key Feature</p>
+                  <p className="text-gray-300 text-xs leading-relaxed">{sec.keyFeature}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Problem Statement Section */}
       {project.problemStatement && (
         <div
