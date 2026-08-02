@@ -10,8 +10,8 @@ export default function ParticleCanvas({ dotColor = '#00d9ff', lineColor = '#00d
 
     let animId
     let particles = []
-    let mouseX = canvas.offsetWidth / 2
-    let mouseY = canvas.offsetHeight / 2
+    let mouseX = window.innerWidth / 2
+    let mouseY = window.innerHeight / 2
 
     const options = {
       minSpeedX: 0.1,
@@ -35,11 +35,15 @@ export default function ParticleCanvas({ dotColor = '#00d9ff', lineColor = '#00d
     }
 
     function resize() {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-      mouseX = canvas.width / 2
-      mouseY = canvas.height / 2
-      init()
+      const w = window.innerWidth
+      const h = window.innerHeight
+      canvas.width = w
+      canvas.height = h
+      mouseX = w / 2
+      mouseY = h / 2
+      if (particles.length === 0) {
+        init()
+      }
     }
 
     function init() {
@@ -63,7 +67,7 @@ export default function ParticleCanvas({ dotColor = '#00d9ff', lineColor = '#00d
     }
 
     function updateParticle(p) {
-      // Eased parallax offset — exactly like particleground
+      // Eased parallax offset
       if (options.parallax) {
         p.parallaxTargX = (mouseX - canvas.width / 2) / (options.parallaxMultiplier * p.layer)
         p.parallaxOffsetX += (p.parallaxTargX - p.parallaxOffsetX) / 10
@@ -137,11 +141,9 @@ export default function ParticleCanvas({ dotColor = '#00d9ff', lineColor = '#00d
       animId = requestAnimationFrame(tick)
     }
 
-    // Mouse tracking — use pageX/pageY like the original
     const onMouseMove = (e) => {
-      const rect = canvas.getBoundingClientRect()
-      mouseX = e.clientX - rect.left
-      mouseY = e.clientY - rect.top
+      mouseX = e.clientX
+      mouseY = e.clientY
     }
 
     window.addEventListener('mousemove', onMouseMove)
@@ -161,11 +163,11 @@ export default function ParticleCanvas({ dotColor = '#00d9ff', lineColor = '#00d
     <canvas
       ref={canvasRef}
       style={{
-        position: 'absolute',
+        position: 'fixed',
         inset: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none', // mouse tracking via window listener, not canvas
+        width: '100vw',
+        height: '100vh',
+        pointerEvents: 'none',
         zIndex: 0,
       }}
     />
