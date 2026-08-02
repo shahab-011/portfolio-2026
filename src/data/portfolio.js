@@ -11,9 +11,7 @@ export const personalInfo = {
   instagram: 'https://www.instagram.com/shahab_._._._/',
   facebook: 'https://www.facebook.com/profile.php?id=100009311674862',
   summary:
-    'AI-Native Full Stack Developer with expertise in building scalable web applications and integrating Generative AI solutions into real-world products. Proficient in OpenAI API, LangChain, React, Node.js, AWS, Docker, and CI/CD pipelines. Passionate about leveraging emerging technologies to develop impactful, user-centric software solutions and drive innovation.',
-  dsaSummary:
-    'Strong problem-solving mindset with high proficiency in Data Structures and Algorithms (DSA). Solved 300+ problems on LeetCode and competitive programming platforms, demonstrating deep understanding of core algorithmic patterns, optimization, dynamic programming, graphs, and scalable system design.',
+    'AI-Native Full Stack Developer with expertise in building scalable web applications and integrating Generative AI solutions into real-world products. Proficient in OpenAI API, LangChain, React, Node.js, AWS, Docker, and CI/CD pipelines. Strong problem-solving skills with high proficiency in Data Structures and Algorithms (DSA). Passionate about leveraging emerging technologies to develop impactful, user-centric software solutions and drive innovation.',
   education: {
     degree: 'B.Tech in Computer Science Engineering',
     college: 'St Thomas College of Engineering and Technology',
