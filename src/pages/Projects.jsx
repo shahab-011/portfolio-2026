@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
@@ -577,20 +577,30 @@ function ProjectDetail({ project, onBack }) {
 /* ── Main ────────────────────────────────────────────────── */
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
-  const [selected, setSelected] = useState(null)
+  const handleBack = () => {
+    if (window.history.state && window.history.state.projectDetail) {
+      window.history.back()
+    } else {
+      setSelected(null)
+    }
+  }
 
   useEffect(() => {
-    if (selected) {
-      window.history.pushState({ projectDetail: true }, '')
-      const handlePopState = () => {
-        setSelected(null)
-      }
-      window.addEventListener('popstate', handlePopState)
-      return () => {
-        window.removeEventListener('popstate', handlePopState)
-      }
+    if (!selected) return
+
+    const handlePopState = () => {
+      setSelected(null)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
     }
   }, [selected])
+
+  const openProject = (p) => {
+    window.history.pushState({ projectDetail: true }, '')
+    setSelected(p)
+  }
 
   const filtered =
     activeFilter === 'All'
@@ -607,7 +617,7 @@ export default function Projects() {
       <div className="relative z-10 pt-28 pb-16 px-4 max-w-6xl mx-auto">
         <AnimatePresence mode="wait">
           {selected ? (
-            <ProjectDetail key="detail" project={selected} onBack={() => setSelected(null)} />
+            <ProjectDetail key="detail" project={selected} onBack={handleBack} />
           ) : (
             <motion.div
               key="list"
@@ -673,7 +683,7 @@ export default function Projects() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
               >
                 {filtered.map((project) => (
-                  <ProjectCard key={project.id} project={project} onClick={setSelected} />
+                  <ProjectCard key={project.id} project={project} onClick={openProject} />
                 ))}
               </motion.div>
 
