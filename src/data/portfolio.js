@@ -283,6 +283,7 @@ export const projects = [
     emoji: '⚖️',
     tagline: 'A unified, privacy-first 3-in-1 legal ecosystem bridging consumer AI document intelligence, smart advocate matchmaking, and enterprise practice management.',
     role: 'Full-Stack Developer & Project Co-Creator',
+    institution: 'St. Thomas’ College of Engineering and Technology (MAKAUT, WB)',
     shortDesc: 'A comprehensive 3-in-1 legal ecosystem engineered for India: pre-connection AI contract analysis, algorithmic advocate matchmaking, and BCI-compliant enterprise practice management.',
     description:
       'The Legal Intelligence System (NyayaAI) is engineered as a comprehensive, unified 3-in-1 legal ecosystem for the Indian judicial landscape. Rather than just being a single-purpose application, it seamlessly connects three distinct phases of the legal workflow into one continuous platform.\n\nBy embedding strict Indian regulatory mandates—such as the Bar Council of India (BCI) trust accounting rules, the DPDP Act of 2023, and the Limitation Act of 1963—directly into the application’s core architecture, NyayaAI proves that sophisticated legal tools can balance high-level enterprise requirements with privacy-first imperatives.',
@@ -356,7 +357,7 @@ export const projects = [
       'Enforced multi-tenant JWT-based Role-Based Access Control (RBAC) to guarantee strict cryptographic data isolation between competing law firms',
     ],
     devLog: [
-      'Co-created NyayaAI 3-in-1 ecosystem architecture',
+      'Co-created NyayaAI 3-in-1 ecosystem architecture at St. Thomas’ College of Engineering and Technology (MAKAUT, WB)',
       'Engineered Section 1: WASM/PDF.js client-side Private Mode parser, Gemini RAG pipeline, and Silence Detector engine',
       'Engineered Section 2: Algorithmic Contextual Matchmaking engine with MongoDB Atlas spatial/text search and NLP heuristics',
       'Engineered Section 3: 15-module React/Express SaaS workspace with Socket.io WebSockets, Limitation Act cron alerts, and BCI trust ledgers',
