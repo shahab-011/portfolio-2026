@@ -577,6 +577,8 @@ function ProjectDetail({ project, onBack }) {
 /* ── Main ────────────────────────────────────────────────── */
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [selected, setSelected] = useState(null)
+
   const handleBack = () => {
     if (window.history.state && window.history.state.projectDetail) {
       window.history.back()
