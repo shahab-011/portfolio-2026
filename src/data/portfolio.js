@@ -291,7 +291,7 @@ export const projects = [
     type: 'Co-Creator & Full-Stack Dev',
     demo: 'https://nayaya-frontend.netlify.app/',
     github: 'https://github.com/shahab-011',
-    tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Gemini AI', 'Socket.io', 'PDF.js', 'WebAssembly', 'Razorpay', 'Render', 'Netlify'],
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Gemini AI', 'Socket.io', 'PDF.js', 'WebAssembly', 'Render', 'Netlify'],
     tags: ['#3in1Ecosystem', '#LegalTech', '#SaaS', '#AI', '#ZeroKnowledge', '#DPDPAct', '#BCICompliant', '#FullStack', '#MERN', '#IndiaLegal', '#FinalYearProject'],
     ecosystemSections: [
       {
@@ -343,7 +343,7 @@ export const projects = [
       { icon: '⚖️', label: 'Smart Lawyer Marketplace', desc: 'Algorithm connecting users to BCI-verified lawyers based on extracted metadata (document type, jurisdiction, risk severity).' },
       { icon: '🔗', label: 'Contextual Interoperability', desc: 'Retained lawyer workspace instantly populates with full case context, document risks, AI findings, and chat history.' },
       { icon: '💼', label: '15-Module Practice SaaS', desc: 'Integrated case management, real-time Socket.io collaboration, and automated procedural task tracking.' },
-      { icon: '💳', label: 'Localized Financial Compliance', desc: 'Native Rupee invoicing with automated 18% GST calculation, Razorpay UPI integration, and BCI double-ledger trust accounting.' },
+      { icon: '💳', label: 'Localized Financial Compliance', desc: 'Native Rupee invoicing with automated 18% GST calculation and BCI double-ledger trust accounting.' },
       { icon: '🔒', label: 'Zero-Trust "Private Mode"', desc: 'Ensures absolute DPDP Act 2023 compliance by using client-side WASM & PDF.js browser memory heap processing.' },
       { icon: '🛡️', label: 'Conflict of Interest Checker', desc: 'Scans historical firm data to flag potential representation conflicts before onboarding new clients (BCI Rule 33).' },
     ],
@@ -360,7 +360,7 @@ export const projects = [
       'Engineered Section 1: WASM/PDF.js client-side Private Mode parser, Gemini RAG pipeline, and Silence Detector engine',
       'Engineered Section 2: Algorithmic Contextual Matchmaking engine with MongoDB Atlas spatial/text search and NLP heuristics',
       'Engineered Section 3: 15-module React/Express SaaS workspace with Socket.io WebSockets, Limitation Act cron alerts, and BCI trust ledgers',
-      'Implemented Razorpay UPI payment integration with automated 18% GST invoicing',
+      'Implemented native INR payment & invoicing with automated 18% GST calculation',
       'Enforced multi-tenant RBAC with JWT token validation and firm-level data isolation',
       'Deployed frontend to Netlify and backend REST API to Render',
     ],
