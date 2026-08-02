@@ -213,9 +213,8 @@ export default function About() {
                 location: 'Kolkata, West Bengal',
                 degree: 'B.Tech — Computer Science Engineering',
                 details: [
-                  'CGPA: 7.10 / 10',
+                  'CGPA: 7.20 / 10',
                   'Specialisation in Full Stack Development',
-                  'Solved 300+ DSA problems on LeetCode',
                   'Built multiple production-grade MERN projects',
                 ],
               },
