@@ -43,34 +43,21 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.15,
+      staggerChildren: 0.06,
     },
   },
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 24, scale: 0.92 },
+  hidden: { opacity: 0, y: 16, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      type: 'spring',
-      stiffness: 300,
-      damping: 24,
+      duration: 0.25,
+      ease: [0.25, 0.1, 0.25, 1],
     },
-  },
-  exit: {
-    opacity: 0,
-    y: -12,
-    scale: 0.9,
-    transition: { duration: 0.15 },
   },
 }
 
@@ -641,20 +628,17 @@ export default function Projects() {
               </div>
 
               {/* Grid */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeFilter}
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-                >
-                  {filtered.map((project) => (
-                    <ProjectCard key={project.id} project={project} onClick={setSelected} />
-                  ))}
-                </motion.div>
-              </AnimatePresence>
+              <motion.div
+                key={activeFilter}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+              >
+                {filtered.map((project) => (
+                  <ProjectCard key={project.id} project={project} onClick={setSelected} />
+                ))}
+              </motion.div>
 
               {filtered.length === 0 && (
                 <div className="text-center text-gray-600 py-20 text-sm">
