@@ -189,6 +189,52 @@ export const categories = [
 
 export const projects = [
   {
+    id: 8,
+    title: 'AI-Powered Company Research Assistant',
+    emoji: '🔍',
+    tagline: 'An autonomous, ChatGPT-style B2B intelligence engine that crawls company websites, extracts AI business insights, and generates instant PDF reports.',
+    shortDesc: 'A full-stack, ChatGPT-style application that automates B2B company research using Serper.dev, Cheerio web crawling, OpenRouter LLMs, client-side jsPDF reports, and Discord bot integration.',
+    description:
+      'AI-Powered Company Research Assistant is a full-stack, ChatGPT-style application that automates B2B company research. By simply inputting a company name or URL, the system autonomously searches the web, crawls the official website, uses LLMs to extract business insights and customer pain points, and generates a professional downloadable PDF report.\n\nBuilt end-to-end in a rapid 6-hour hackathon format, the project showcases asynchronous API workflows, efficient LLM context window management, resilient DOM parsing with Cheerio/Axios, real-time chat status UX, and automated multi-channel reporting via Discord APIs.',
+    status: 'Deployed',
+    featured: true,
+    type: 'Hackathon Project',
+    demo: 'https://hackaathorr.vercel.app/',
+    github: 'https://github.com/shahab-011/hackaathorr/blob/main/README.md',
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'Serper.dev API', 'OpenRouter API', 'Cheerio', 'Axios', 'jsPDF', 'Discord API', 'Vercel'],
+    tags: ['#AI', '#B2BResearch', '#WebScraping', '#OpenRouter', '#NextJS', '#ChatGPTStyle', '#jsPDF', '#DiscordIntegration', '#HackathonBuild'],
+    highlights: [
+      { icon: '🕷️', label: 'Intelligent Web Crawling Engine', desc: 'Built a custom crawler using Cheerio and Axios that automatically discovers and scrapes up to 5 key subpages (About, Contact, Products, Pricing), filtering out noise for clean AI extraction.' },
+      { icon: '🧠', label: 'LLM-Powered Business Analysis', desc: 'Integrated OpenRouter API allowing users to choose AI models (Gemini Flash, Llama 3). AI analyzes text to generate structured JSON insights and customer pain points.' },
+      { icon: '🔎', label: 'Automated Search Discovery', desc: 'Utilized Serper.dev API to dynamically locate official company websites, public contact information, and industry competitors from simple name inputs.' },
+      { icon: '📄', label: 'Dynamic PDF Report Generation', desc: 'Client-side PDF compilation via jsPDF, letting users instantly download a professionally formatted report with executive summary and competitor benchmarking.' },
+      { icon: '💬', label: 'Discord Bot Workflow Automation', desc: 'Bonus integration allowing users to connect Discord Bot Token & Channel ID for automated direct dispatch of generated PDF reports via Discord REST API.' },
+      { icon: '⚡', label: 'Real-Time Chat UX & Status Pipeline', desc: 'Sleek, dark-mode ChatGPT-style interface with live progress indicators ("🔍 Searching..." → "🕷️ Crawling..." → "🧠 AI Analyzing...") for clear multi-step feedback.' },
+    ],
+    keyDecisions: [
+      'Built end-to-end in a rapid 6-hour hackathon sprint prioritizing high-throughput async API pipelines',
+      'Engineered intelligent DOM filtering with Cheerio to strip scripts, navbars, footers, and login forms, conserving LLM context tokens',
+      'Selected OpenRouter API to provide dynamic model selection (Google Gemini Flash, Meta Llama 3) for cost-effective structured JSON synthesis',
+      'Implemented client-side jsPDF rendering to avoid serverless PDF generation limits and provide instant zero-latency downloads',
+      'Connected Discord REST API webhooks for automated multi-destination report delivery',
+    ],
+    devLog: [
+      'Concepted & built end-to-end in 6 hours during a rapid B2B AI hackathon',
+      'Configured Next.js App Router API routes for async Serper.dev Google search queries',
+      'Developed Cheerio + Axios recursive web scraper targeting top 5 core company subpages',
+      'Built OpenRouter LLM prompt engine returning validated JSON for pain points and business offerings',
+      'Created jsPDF template engine for instant client-side PDF document generation',
+      'Implemented Discord Bot REST API integration for automated channel uploads',
+      'Deployed on Vercel with real-time SSE chat status updates',
+    ],
+    stats: [
+      { label: 'Build Duration', value: '6 Hours' },
+      { label: 'Pages Crawled', value: 'Up to 5 Pages' },
+      { label: 'AI Models', value: 'Multi-LLM (OpenRouter)' },
+      { label: 'Deployment', value: 'Vercel' },
+    ],
+  },
+  {
     id: 0,
     title: 'Eventra — AI Event Photo Platform',
     emoji: '✨',
