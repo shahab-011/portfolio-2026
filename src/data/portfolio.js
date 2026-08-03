@@ -8,7 +8,7 @@ export const personalInfo = {
   phone: '+91-9709422890',
   github: 'https://github.com/shahab-011',
   linkedin: 'https://linkedin.com/in/shahab-alam01',
-  instagram: 'https://www.instagram.com/shahab_._._._/',
+  instagram: 'https://www.instagram.com/shahab1___/',
   facebook: 'https://www.facebook.com/profile.php?id=100009311674862',
   summary:
     'AI-Native Full Stack Developer with expertise in building scalable web applications and integrating Generative AI solutions into real-world products. Proficient in OpenAI API, LangChain, React, Node.js, AWS, Docker, and CI/CD pipelines. Strong problem-solving skills with high proficiency in Data Structures and Algorithms. Passionate about leveraging emerging technologies to develop impactful, user-centric software solutions and drive innovation.',
