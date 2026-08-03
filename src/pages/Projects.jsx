@@ -358,10 +358,10 @@ function ProjectDetail({ project, onBack }) {
         <div
           className="rounded-2xl p-6 md:p-8 mb-5 relative overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, rgba(8,13,31,0.95) 0%, rgba(15,23,42,0.95) 100%)',
+            background: 'rgba(255, 255, 255, 0.03)',
             backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
             border: '1px solid rgba(0, 217, 255, 0.25)',
-            boxShadow: '0 12px 40px rgba(0,0,0,0.4)',
           }}
         >
           <div className="mb-6">
