@@ -109,8 +109,7 @@ export default function Contact() {
             <h1 className="text-4xl md:text-5xl font-extrabold gradient-text">Get In Touch</h1>
           </div>
           <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Looking for a hardworking, authentic developer always up for a challenge?
-            Let&apos;s connect — fill the form and I&apos;ll get back to you directly.
+            Have an opportunity or an exciting project in mind? I&apos;d love to hear about it. Fill out the form below, share your idea or opportunity, and I&apos;ll get back to you soon.
           </p>
         </motion.div>
 
