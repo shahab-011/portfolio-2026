@@ -1,13 +1,14 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { HiDownload } from 'react-icons/hi'
 import ParticleCanvas from '../components/ParticleCanvas'
 import GeodesicSphere from '../components/GeodesicSphere'
 import Typewriter from '../components/Typewriter'
 import { personalInfo } from '../data/portfolio'
 
 /* Animated shimmer border button */
-function GlowButton({ children, onClick, href, to, variant = 'outline', delay = 0 }) {
+function GlowButton({ children, onClick, href, download, to, variant = 'outline', delay = 0 }) {
   const inner = (
     <motion.button
       initial={{ opacity: 0, y: 20 }}
@@ -67,7 +68,7 @@ function GlowButton({ children, onClick, href, to, variant = 'outline', delay = 
   )
 
   if (to) return <Link to={to}>{inner}</Link>
-  if (href) return <a href={href}>{inner}</a>
+  if (href) return <a href={href} download={download}>{inner}</a>
   return <span onClick={onClick}>{inner}</span>
 }
 
@@ -187,6 +188,10 @@ export default function Home() {
                   →
                 </motion.span>
                 Project
+              </GlowButton>
+
+              <GlowButton href="/assets/resume.pdf" download="Shahab_Alam_Resume.pdf" variant="outline" delay={1.15}>
+                <HiDownload size={15} /> Resume
               </GlowButton>
             </div>
 

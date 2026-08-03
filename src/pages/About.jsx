@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import { HiDownload } from 'react-icons/hi'
 import ParticleCanvas from '../components/ParticleCanvas'
 import { personalInfo, skills, categories, certifications, experience } from '../data/portfolio'
 
@@ -181,9 +182,9 @@ export default function About() {
                   download="Shahab_Alam_Resume.pdf"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
-                  className="ml-2 px-4 py-1.5 rounded-full text-sm font-medium border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition-all"
+                  className="ml-2 px-4 py-1.5 rounded-full text-sm font-medium border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition-all inline-flex items-center gap-1.5"
                 >
-                  ↑ Resume
+                  <HiDownload size={14} /> Resume
                 </motion.a>
               </div>
             </div>
