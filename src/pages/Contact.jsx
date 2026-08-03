@@ -145,10 +145,7 @@ export default function Contact() {
           className="rounded-2xl border border-white/10 p-6 md:p-10"
           style={{ background: 'rgba(8,13,31,0.7)', backdropFilter: 'blur(8px)' }}
         >
-          <h3 className="text-white font-bold text-xl mb-2">Send a Message</h3>
-          <p className="text-gray-500 text-sm mb-8">
-            I reply within 24 hours — straight to my inbox.
-          </p>
+          <h3 className="text-white font-bold text-xl mb-6">Send a Message</h3>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid sm:grid-cols-2 gap-5">
