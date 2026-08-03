@@ -204,7 +204,7 @@ export const projects = [
     github: 'https://github.com/shahab-011/nay',
     githubBackend: 'https://github.com/shahab-011/product-backend',
     tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Gemini AI', 'Socket.io', 'PDF.js', 'WebAssembly', 'Render', 'Netlify'],
-    tags: ['#3in1Ecosystem', '#LegalTech', '#SaaS', '#AI', '#ZeroKnowledge', '#DPDPAct', '#BCICompliant', '#FullStack', '#MERN', '#IndiaLegal', '#FinalYearProject'],
+    tags: ['#3in1Ecosystem', '#LegalTech', '#SaaS', '#AI', '#ZeroKnowledge', '#DPDPAct', '#BCICompliant', '#FullStack', '#MERN', '#IndiaLegal'],
     ecosystemSections: [
       {
         num: '1️⃣',
