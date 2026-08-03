@@ -335,7 +335,7 @@ export const projects = [
     title: 'AI-Powered Company Research Assistant',
     emoji: '🔍',
     tagline: 'An autonomous, AI-driven B2B intelligence engine that crawls company websites, extracts AI business insights, and generates instant PDF reports.',
-    shortDesc: 'A full-stack, conversational AI application that automates B2B company research using Serper.dev, Cheerio web crawling, OpenRouter LLMs, client-side jsPDF reports, and Discord bot integration.',
+    shortDesc: 'Conversational AI application that automates B2B company research using Serper.dev, Cheerio web crawling, OpenRouter LLMs, client-side jsPDF reports, and Discord bot integration.',
     description:
       'AI-Powered Company Research Assistant is a full-stack, conversational AI application that automates B2B company research. By simply inputting a company name or URL, the system autonomously searches the web, crawls the official website, uses LLMs to extract business insights and customer pain points, and generates a professional downloadable PDF report.\n\nBuilt end-to-end in a rapid 6-hour hackathon format, the project showcases asynchronous API workflows, efficient LLM context window management, resilient DOM parsing with Cheerio/Axios, real-time chat status UX, and automated multi-channel reporting via Discord APIs.',
     status: 'Deployed',
