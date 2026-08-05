@@ -98,7 +98,7 @@ function ProjectCard({ project, onClick }) {
             <span className="text-2xl leading-none">{project.emoji}</span>
             <div>
               <h3 className="text-white font-semibold text-sm leading-snug">{project.title}</h3>
-              <p className="text-gray-500 text-xs mt-0.5">{project.type}</p>
+              {project.type && <p className="text-gray-500 text-xs mt-0.5">{project.type}</p>}
             </div>
           </div>
           <ArrowUpRight
@@ -254,12 +254,14 @@ function ProjectDetail({ project, onBack }) {
                 <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: status.dot }} />
                 {status.label}
               </span>
-              <span
-                className="px-3 py-1 rounded-full text-xs text-gray-400"
-                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
-              >
-                {project.type}
-              </span>
+              {project.type && (
+                <span
+                  className="px-3 py-1 rounded-full text-xs text-gray-400"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
+                >
+                  {project.type}
+                </span>
+              )}
             </div>
             {project.institution && (
               <p className="text-gray-400 text-xs font-mono mt-1">🎓 {project.institution}</p>
