@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { HiDownload } from 'react-icons/hi'
 import ParticleCanvas from '../components/ParticleCanvas'
 import GeodesicSphere from '../components/GeodesicSphere'
 import Typewriter from '../components/Typewriter'
@@ -152,20 +151,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.55 }}
-              className="text-base md:text-lg text-gray-400 mb-3 h-7"
+              className="text-base md:text-lg text-gray-400 mb-10 h-7"
             >
               <Typewriter words={personalInfo.roles} speed={75} deleteSpeed={45} pause={2200} />
             </motion.div>
-
-            {/* Welcome line */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-gray-500 text-sm mb-10"
-            >
-              {personalInfo.welcome}
-            </motion.p>
 
             {/* Buttons */}
             <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start">
@@ -188,10 +177,6 @@ export default function Home() {
                   →
                 </motion.span>
                 Project
-              </GlowButton>
-
-              <GlowButton href="/assets/resume.pdf" download="Shahab_Alam_Resume.pdf" variant="outline" delay={1.15}>
-                <HiDownload size={15} /> Resume
               </GlowButton>
             </div>
 

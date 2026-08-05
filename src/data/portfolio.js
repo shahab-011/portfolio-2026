@@ -2,7 +2,7 @@ export const personalInfo = {
   name: 'SHAHAB',
   fullName: 'Shahab Alam',
   tagline: 'AI-Native Full Stack Developer & Problem Solver',
-  roles: ['AI-Native Full Stack Developer', 'Full Stack MERN Developer', 'Gen AI & Prompt Engineer', 'Problem Solver (300+ LeetCode)'],
+  roles: ['AI-Native Full Stack Developer', 'Full Stack MERN Developer'],
   welcome: 'Welcome to my portfolio!',
   email: 'shahabalam2512@gmail.com',
   phone: '+91-9709422890',
