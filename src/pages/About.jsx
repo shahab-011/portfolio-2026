@@ -145,10 +145,7 @@ export default function About() {
                 <p className="text-cyan-400 text-xs font-mono mb-1">🎓 Education</p>
                 <p className="text-white font-semibold">{personalInfo.education.degree}</p>
                 <p className="text-gray-400 text-sm">{personalInfo.education.college}</p>
-                <div className="flex gap-4 mt-1">
-                  <span className="text-gray-400 text-xs">{personalInfo.education.duration}</span>
-                  <span className="text-cyan-400 text-xs font-semibold">CGPA: {personalInfo.education.cgpa}</span>
-                </div>
+                <p className="text-gray-400 text-xs mt-1">{personalInfo.education.duration}</p>
               </div>
 
               {/* Social links */}
@@ -214,7 +211,6 @@ export default function About() {
                 location: 'Kolkata, West Bengal',
                 degree: 'B.Tech — Computer Science Engineering',
                 details: [
-                  'CGPA: 7.20 / 10',
                   'Specialisation in Full Stack Development',
                   'Built multiple production-grade MERN projects',
                 ],

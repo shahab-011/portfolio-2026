@@ -1,18 +1,41 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, ArrowLeft, ArrowUpRight } from 'lucide-react'
+import { ExternalLink, ArrowLeft, ArrowUpRight, CheckCircle2, Globe2, LayoutGrid, LoaderCircle } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
 import ParticleCanvas from '../components/ParticleCanvas'
-import { projects } from '../data/portfolio'
+import { aiProjects, projects } from '../data/portfolio'
 
-const filters = ['All', 'Deployed', 'Under Development', 'Completed']
+const projectCategories = [
+  { id: 'ai', label: 'Agentic-AI • Gen-AI' },
+  { id: 'fullstack', label: 'Full-Stack' },
+]
 
-const filterLabels = {
-  'All': 'All Work',
-  'Under Development': '// In Progress',
-  'Completed': 'Completed',
-  'Deployed': 'Deployed',
-}
+const statusFilters = [
+  {
+    id: 'All',
+    label: 'All Work',
+    Icon: LayoutGrid,
+    hover: { backgroundColor: 'rgba(0,217,255,0.16)', borderColor: 'rgba(0,217,255,0.5)', color: '#67e8f9' },
+  },
+  {
+    id: 'Deployed',
+    label: 'Deployed',
+    Icon: Globe2,
+    hover: { backgroundColor: 'rgba(244,63,94,0.18)', borderColor: 'rgba(244,63,94,0.55)', color: '#fb7185' },
+  },
+  {
+    id: 'Under Development',
+    label: 'In Progress',
+    Icon: LoaderCircle,
+    hover: { backgroundColor: 'rgba(234,179,8,0.16)', borderColor: 'rgba(234,179,8,0.55)', color: '#facc15' },
+  },
+  {
+    id: 'Completed',
+    label: 'Completed',
+    Icon: CheckCircle2,
+    hover: { backgroundColor: 'rgba(34,197,94,0.16)', borderColor: 'rgba(34,197,94,0.55)', color: '#4ade80' },
+  },
+]
 
 const statusConfig = {
   Deployed: {
@@ -176,6 +199,17 @@ function ProjectCard({ project, onClick }) {
               <FaGithub size={11} /> Code
             </a>
           )}
+          {project.githubProfile && (
+            <a
+              href={project.githubProfile}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              <FaGithub size={11} /> GitHub
+            </a>
+          )}
           {project.demo && (
             <a
               href={project.demo}
@@ -319,6 +353,19 @@ function ProjectDetail({ project, onBack }) {
               <FaGithub size={14} /> View Code
             </motion.a>
           )}
+          {project.githubProfile && (
+            <motion.a
+              href={project.githubProfile}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-gray-300 hover:text-white transition-colors"
+              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
+            >
+              <FaGithub size={14} /> GitHub Profile
+            </motion.a>
+          )}
           {project.githubBackend && (
             <motion.a
               href={project.githubBackend}
@@ -352,6 +399,47 @@ function ProjectDetail({ project, onBack }) {
               <p className="text-gray-500 text-xs mt-1">{s.label}</p>
             </div>
           ))}
+        </div>
+      )}
+
+      {project.flow && (
+        <div
+          className="rounded-2xl p-6 md:p-8 mb-5"
+          style={{
+            background: 'rgba(0,217,255,0.04)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(0,217,255,0.15)',
+          }}
+        >
+          <h3 className="text-cyan-400 font-semibold text-sm mb-2 uppercase tracking-wide font-mono">Workflow</h3>
+          <p className="text-gray-300 text-sm leading-relaxed">{project.flow}</p>
+          {project.learned && (
+            <>
+              <h3 className="text-purple-300 font-semibold text-sm mt-5 mb-2 uppercase tracking-wide font-mono">What I Learned</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{project.learned}</p>
+            </>
+          )}
+          {project.metrics && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+              {project.metrics.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="rounded-xl p-4 text-center"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(0,217,255,0.1)' }}
+                >
+                  <p className="text-cyan-300 font-bold text-lg">{metric.value}</p>
+                  <p className="text-gray-500 text-xs mt-1">{metric.label}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {project.evaluation && (
+            <p className="text-gray-400 text-xs leading-relaxed mt-4">{project.evaluation}</p>
+          )}
+          {project.privacyNote && (
+            <p className="text-amber-300/80 text-xs leading-relaxed mt-4">{project.privacyNote}</p>
+          )}
         </div>
       )}
 
@@ -578,6 +666,7 @@ function ProjectDetail({ project, onBack }) {
 
 /* ── Main ────────────────────────────────────────────────── */
 export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState('fullstack')
   const [activeFilter, setActiveFilter] = useState('All')
   const [selected, setSelected] = useState(null)
 
@@ -606,10 +695,48 @@ export default function Projects() {
     setSelected(p)
   }
 
-  const filtered =
+  const visibleProjects = (projectList) =>
     activeFilter === 'All'
-      ? projects
-      : projects.filter((p) => p.status === activeFilter)
+      ? projectList
+      : projectList.filter((project) => project.status === activeFilter)
+
+  const filteredAiProjects = visibleProjects(aiProjects)
+  const filteredFullStackProjects = visibleProjects(projects)
+
+  const renderStatusFilters = () => (
+    <div className="flex flex-wrap gap-2 mb-6" aria-label="Filter projects by status">
+      {statusFilters.map((filter) => (
+        <motion.button
+          key={filter.id}
+          onClick={() => setActiveFilter(filter.id)}
+          aria-pressed={activeFilter === filter.id}
+          whileHover={{
+            scale: 1.04,
+            ...filter.hover,
+            transition: { type: 'tween', duration: 0.24, ease: 'easeOut' },
+          }}
+          whileTap={{ scale: 0.98, transition: { type: 'tween', duration: 0.12, ease: 'easeOut' } }}
+          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all"
+          style={
+            activeFilter === filter.id
+              ? {
+                  background: 'rgba(148,66,254,0.25)',
+                  border: '1px solid rgba(148,66,254,0.5)',
+                  color: '#c084fc',
+                }
+              : {
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.09)',
+                  color: '#6b7280',
+                }
+          }
+        >
+          <filter.Icon size={13} aria-hidden="true" />
+          {filter.label}
+        </motion.button>
+      ))}
+    </div>
+  )
 
   return (
     <div className="relative min-h-screen" style={{ background: '#020617' }}>
@@ -641,22 +768,25 @@ export default function Projects() {
                   Projects
                 </motion.h1>
 
-                {/* Filters — left aligned */}
+                {/* Project category tabs */}
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 }}
                   className="flex flex-wrap gap-2"
                 >
-                  {filters.map((f) => (
+                  {projectCategories.map((category) => (
                     <motion.button
-                      key={f}
-                      onClick={() => setActiveFilter(f)}
+                      key={category.id}
+                      onClick={() => {
+                        setActiveCategory(category.id)
+                        setActiveFilter('All')
+                      }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all"
                       style={
-                        activeFilter === f
+                        activeCategory === category.id
                           ? {
                               background: 'rgba(148,66,254,0.25)',
                               border: '1px solid rgba(148,66,254,0.5)',
@@ -669,32 +799,71 @@ export default function Projects() {
                             }
                       }
                     >
-                      {f === 'Under Development' && <span>⚙</span>}
-                      {f === 'Completed' && <span>✓</span>}
-                      {f === 'Deployed' && <span>🌐</span>}
-                      {filterLabels[f]}
+                      {category.label}
                     </motion.button>
                   ))}
                 </motion.div>
               </div>
 
-              {/* Grid */}
-              <motion.div
-                key={activeFilter}
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-              >
-                {filtered.map((project) => (
-                  <ProjectCard key={project.id} project={project} onClick={openProject} />
-                ))}
-              </motion.div>
-
-              {filtered.length === 0 && (
-                <div className="text-center text-gray-600 py-20 text-sm">
-                  No projects match this filter.
-                </div>
+              {activeCategory === 'ai' ? (
+                <section className="mb-14" aria-labelledby="ai-projects-heading">
+                  {renderStatusFilters()}
+                  <div className="mb-6">
+                    <p className="text-cyan-400 text-xs font-mono tracking-widest mb-2">
+                      LEARNING PROGRESSION · 11 PROJECTS
+                    </p>
+                    <h2 id="ai-projects-heading" className="text-2xl md:text-3xl font-extrabold text-white mb-2">
+                      Generative AI <span className="gradient-text">→ Agentic AI</span>
+                    </h2>
+                    <p className="text-gray-400 text-sm max-w-3xl leading-relaxed">
+                      From prompt-driven LLM applications and retrieval to tool use, workflow orchestration, multi-agent systems, and an evaluated RAG capstone. Projects are arranged by increasing technical depth.
+                    </p>
+                  </div>
+                <motion.div
+                  key={`ai-${activeFilter}`}
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                >
+                  {filteredAiProjects.map((project) => (
+                    <ProjectCard key={project.id} project={project} onClick={openProject} />
+                  ))}
+                </motion.div>
+                {filteredAiProjects.length === 0 && (
+                  <div className="text-center text-gray-500 py-16 text-sm">
+                    No AI projects match this status filter.
+                  </div>
+                )}
+                </section>
+              ) : (
+                <section aria-labelledby="fullstack-projects-heading">
+                  {renderStatusFilters()}
+                  <div className="mb-5">
+                    <h2 id="fullstack-projects-heading" className="text-2xl font-bold text-white">
+                      Full-Stack Projects
+                    </h2>
+                    <p className="text-gray-500 text-xs mt-1">
+                      Applications, platforms, and products built across the full stack.
+                    </p>
+                  </div>
+                  <motion.div
+                    key={`fullstack-${activeFilter}`}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                  >
+                    {filteredFullStackProjects.map((project) => (
+                      <ProjectCard key={`${project.id}-${project.title}`} project={project} onClick={openProject} />
+                    ))}
+                  </motion.div>
+                  {filteredFullStackProjects.length === 0 && (
+                    <div className="text-center text-gray-500 py-16 text-sm">
+                      No full-stack projects match this status filter.
+                    </div>
+                  )}
+                </section>
               )}
             </motion.div>
           )}
